@@ -1,3 +1,6 @@
 [submodule "service/cluster"]
 	path = service/cluster
 	url = https://github.com/dapnet-core/cluster-service.git
+[submodule "service/status"]
+	path = service/status
+	url = https://github.com/dapnet-core/status-service

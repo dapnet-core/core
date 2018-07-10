@@ -39,7 +39,7 @@ services:
     build: ./service/cluster
     environment:
     - MIX_ENV=prod
-    command: mix run --no-halt
-    volumes:
-    - "./service/cluster/:/app/"
+    restart: always
+  status:
+    build: ./service/status
     restart: always

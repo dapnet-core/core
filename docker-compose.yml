@@ -15,6 +15,7 @@ services:
     - rabbitmq
     - couchdb
     - cluster
+    restart: always
   rabbitmq:
     image: rabbitmq
     ports:
@@ -25,6 +26,7 @@ services:
     volumes:
     - "./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
     - "./config/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+    restart: always
   couchdb:
     image: couchdb
     volumes:
@@ -32,6 +34,7 @@ services:
     environment:
     - COUCHDB_USER=admin
     - COUCHDB_PASSWORD=admin
+    restart: always
   cluster:
     build: ./service/cluster
     environment:
@@ -39,3 +42,4 @@ services:
     command: mix run --no-halt
     volumes:
     - "./service/cluster/:/app/"
+    restart: always

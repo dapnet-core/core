@@ -6,6 +6,6 @@
 ## Startup Procedure
 
 ```bash
-$ cd dapnet-core-test/
+$ cd core/
 $ docker-compose up
 ```

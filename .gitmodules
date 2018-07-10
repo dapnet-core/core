@@ -1,0 +1,3 @@
+[submodule "service/cluster"]
+	path = service/cluster
+	url = https://github.com/dapnet-core/cluster-service.git

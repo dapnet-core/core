@@ -1,0 +1,41 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    volumes:
+    - "./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+    - "./web:/var/www/dapnet"
+    ports:
+    - "80:80"
+    - "5984:5984"
+    depends_on:
+    - rabbitmq
+    - couchdb
+    links:
+    - rabbitmq
+    - couchdb
+    - cluster
+  rabbitmq:
+    image: rabbitmq
+    ports:
+    - "35197:35197"
+    - "4369:4369"
+    - "5671:5671"
+    - "5672:5672"
+    volumes:
+    - "./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
+    - "./config/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+  couchdb:
+    image: couchdb
+    volumes:
+    - "./data/couchdb/:/opt/couchdb/data"
+    environment:
+    - COUCHDB_USER=admin
+    - COUCHDB_PASSWORD=admin
+  cluster:
+    build: ./service/cluster
+    environment:
+    - MIX_ENV=prod
+    command: mix run --no-halt
+    volumes:
+    - "./service/cluster/:/app/"

@@ -41,6 +41,9 @@ services:
     environment:
     - MIX_ENV=dev
     restart: always
+    depends_on:
+    - rabbitmq
+    - couchdb
   status:
     build: ./service/status
     restart: always

@@ -31,15 +31,19 @@ services:
     image: couchdb
     volumes:
     - "./data/couchdb/:/opt/couchdb/data"
-    environment:
-    - COUCHDB_USER=admin
-    - COUCHDB_PASSWORD=admin
+    env_file: config/config.env
     restart: always
   cluster:
     build: ./service/cluster
+    volumes:
+    - "./service/cluster/:/app"
+    env_file: config/config.env
     environment:
-    - MIX_ENV=prod
+    - MIX_ENV=dev
     restart: always
   status:
     build: ./service/status
+    restart: always
+  statistics:
+    build: ./service/statistics
     restart: always

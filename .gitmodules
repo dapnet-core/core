@@ -4,3 +4,6 @@
 [submodule "service/status"]
 	path = service/status
 	url = https://github.com/dapnet-core/status-service
+[submodule "service/statistics"]
+	path = service/statistics
+	url = https://github.com/dapnet-core/statistics-service.git

@@ -7,3 +7,6 @@
 [submodule "service/statistics"]
 	path = service/statistics
 	url = https://github.com/dapnet-core/statistics-service.git
+[submodule "service/auth"]
+	path = service/auth
+	url = https://github.com/dapnet-core/auth-service.git

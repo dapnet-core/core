@@ -44,6 +44,16 @@ services:
     depends_on:
     - rabbitmq
     - couchdb
+  auth:
+    build: ./service/auth
+    volumes:
+    - "./service/auth/:/app"
+    env_file: config/config.env
+    environment:
+    - MIX_ENV=dev
+    restart: always
+    depends_on:
+    - couchdb
   status:
     build: ./service/status
     restart: always

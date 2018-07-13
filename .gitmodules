@@ -10,3 +10,6 @@
 [submodule "service/auth"]
 	path = service/auth
 	url = https://github.com/dapnet-core/auth-service.git
+[submodule "web"]
+	path = web
+	url = https://github.com/7h0ma5/Web.git

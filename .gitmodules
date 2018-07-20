@@ -13,3 +13,6 @@
 [submodule "web"]
 	path = web
 	url = https://github.com/7h0ma5/Web.git
+[submodule "service/telemetry"]
+	path = service/telemetry
+	url = https://github.com/dapnet-core/telemetry-service.git

@@ -7,9 +7,6 @@ services:
     ports:
     - "80:80"
     - "5984:5984"
-    depends_on:
-    - rabbitmq
-    - couchdb
     links:
     - rabbitmq
     - couchdb
@@ -26,6 +23,8 @@ services:
     - "./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
     - "./config/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
     restart: always
+    depends_on:
+    - auth
   couchdb:
     image: couchdb
     volumes:
@@ -53,6 +52,16 @@ services:
     restart: always
     depends_on:
     - couchdb
+  telemetry:
+    build: ./service/telemetry
+    volumes:
+    - "./service/telemetry/:/app"
+    env_file: config/config.env
+    environment:
+    - MIX_ENV=dev
+    restart: always
+    depends_on:
+    - rabbitmq
   status:
     build: ./service/status
     restart: always

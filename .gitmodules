@@ -16,3 +16,6 @@
 [submodule "service/telemetry"]
 	path = service/telemetry
 	url = https://github.com/dapnet-core/telemetry-service.git
+[submodule "service/database"]
+	path = service/database
+	url = https://github.com/dapnet-core/database-service.git

@@ -68,3 +68,9 @@ services:
   statistics:
     build: ./service/statistics
     restart: always
+  database:
+    build: ./service/database
+    env_file: config/config.env
+    restart: always
+    depends_on:
+    - couchdb

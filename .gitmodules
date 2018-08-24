@@ -12,7 +12,7 @@
 	url = https://github.com/dapnet-core/auth-service.git
 [submodule "web"]
 	path = web
-	url = https://github.com/7h0ma5/Web.git
+	url = https://github.com/dapnet-core/web.git
 [submodule "service/telemetry"]
 	path = service/telemetry
 	url = https://github.com/dapnet-core/telemetry-service.git

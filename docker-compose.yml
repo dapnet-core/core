@@ -74,3 +74,16 @@ services:
     restart: always
     depends_on:
     - couchdb
+    - auth
+  transmitter:
+    build: ./service/transmitter
+    volumes:
+    - "./service/transmitter/:/app"
+    env_file: config/config.env
+    environment:
+    - MIX_ENV=dev
+    restart: always
+    depends_on:
+    - couchdb
+    - rabbitmq
+    - auth

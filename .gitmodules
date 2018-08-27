@@ -19,3 +19,6 @@
 [submodule "service/database"]
 	path = service/database
 	url = https://github.com/dapnet-core/database-service.git
+[submodule "service/transmitter"]
+	path = service/transmitter
+	url = https://github.com/dapnet-core/transmitter-service

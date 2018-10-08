@@ -75,6 +75,18 @@ services:
     depends_on:
     - couchdb
     - auth
+  call:
+    build: ./service/call
+    volumes:
+    - "./service/call/:/app"
+    env_file: config/config.env
+    environment:
+    - MIX_ENV=dev
+    restart: always
+    depends_on:
+    - couchdb
+    - rabbitmq
+    - auth
   transmitter:
     build: ./service/transmitter
     volumes:

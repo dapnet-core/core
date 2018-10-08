@@ -22,3 +22,6 @@
 [submodule "service/transmitter"]
 	path = service/transmitter
 	url = https://github.com/dapnet-core/transmitter-service
+[submodule "service/call"]
+	path = service/call
+	url = https://github.com/dapnet-core/call-service

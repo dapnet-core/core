@@ -1,27 +1,15 @@
-[submodule "service/cluster"]
-	path = service/cluster
-	url = https://github.com/dapnet-core/cluster-service.git
 [submodule "service/status"]
 	path = service/status
 	url = https://github.com/dapnet-core/status-service
 [submodule "service/statistics"]
 	path = service/statistics
 	url = https://github.com/dapnet-core/statistics-service.git
-[submodule "service/auth"]
-	path = service/auth
-	url = https://github.com/dapnet-core/auth-service.git
 [submodule "web"]
 	path = web
 	url = https://github.com/dapnet-core/web.git
-[submodule "service/telemetry"]
-	path = service/telemetry
-	url = https://github.com/dapnet-core/telemetry-service.git
 [submodule "service/database"]
 	path = service/database
 	url = https://github.com/dapnet-core/database-service.git
-[submodule "service/transmitter"]
-	path = service/transmitter
-	url = https://github.com/dapnet-core/transmitter-service
-[submodule "service/call"]
-	path = service/call
-	url = https://github.com/dapnet-core/call-service
+[submodule "service/api"]
+	path = service/api
+	url = https://github.com/dapnet-core/api-service.git

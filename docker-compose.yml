@@ -10,7 +10,7 @@ services:
     links:
     - rabbitmq
     - couchdb
-    - cluster
+    - api
     restart: always
   rabbitmq:
     image: rabbitmq
@@ -23,18 +23,16 @@ services:
     - "./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
     - "./config/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
     restart: always
-    depends_on:
-    - auth
   couchdb:
     image: couchdb
     volumes:
     - "./data/couchdb/:/opt/couchdb/data"
     env_file: config/config.env
     restart: always
-  cluster:
-    build: ./service/cluster
+  api:
+    build: ./service/api
     volumes:
-    - "./service/cluster/:/app"
+    - "./service/api/:/app"
     env_file: config/config.env
     environment:
     - MIX_ENV=dev
@@ -42,60 +40,10 @@ services:
     depends_on:
     - rabbitmq
     - couchdb
-  auth:
-    build: ./service/auth
-    volumes:
-    - "./service/auth/:/app"
-    env_file: config/config.env
-    environment:
-    - MIX_ENV=dev
-    restart: always
-    depends_on:
-    - couchdb
-  telemetry:
-    build: ./service/telemetry
-    volumes:
-    - "./service/telemetry/:/app"
-    env_file: config/config.env
-    environment:
-    - MIX_ENV=dev
-    restart: always
-    depends_on:
-    - rabbitmq
-  status:
-    build: ./service/status
-    restart: always
-  statistics:
-    build: ./service/statistics
-    restart: always
   database:
     build: ./service/database
     env_file: config/config.env
     restart: always
     depends_on:
     - couchdb
-    - auth
-  call:
-    build: ./service/call
-    volumes:
-    - "./service/call/:/app"
-    env_file: config/config.env
-    environment:
-    - MIX_ENV=dev
-    restart: always
-    depends_on:
-    - couchdb
-    - rabbitmq
-    - auth
-  transmitter:
-    build: ./service/transmitter
-    volumes:
-    - "./service/transmitter/:/app"
-    env_file: config/config.env
-    environment:
-    - MIX_ENV=dev
-    restart: always
-    depends_on:
-    - couchdb
-    - rabbitmq
-    - auth
+    - api

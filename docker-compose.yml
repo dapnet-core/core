@@ -29,6 +29,12 @@ services:
     - "./data/couchdb/:/opt/couchdb/data"
     env_file: config/config.env
     restart: always
+  postgres:
+    image: postgres
+    volumes:
+    - "./data/postgres/:/var/lib/postgresql/data"
+    env_file: config/config.env
+    restart: always
   api:
     build: ./service/api
     volumes:
@@ -40,6 +46,7 @@ services:
     depends_on:
     - rabbitmq
     - couchdb
+    - postgres
   database:
     build: ./service/database
     env_file: config/config.env

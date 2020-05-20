@@ -36,7 +36,10 @@ services:
     env_file: config/config.env
     restart: always
   api:
-    build: ./service/api
+    build:
+      context: ./service/api
+      args:
+        - POSTGRES_PASSWORD
     volumes:
     - "./service/api/:/app"
     env_file: config/config.env

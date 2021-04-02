@@ -7,9 +7,6 @@
 [submodule "web"]
 	path = web
 	url = https://github.com/dapnet-core/web.git
-[submodule "service/database"]
-	path = service/database
-	url = https://github.com/dapnet-core/database-service.git
 [submodule "service/api"]
 	path = service/api
 	url = https://github.com/dapnet-core/api-service.git

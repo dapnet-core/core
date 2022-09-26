@@ -1,6 +1,8 @@
 # Docker-based DAPNET node setup
 
-To run the "old" setup using [web](https://github.com/dapnet-core/web/tree/vuetify) as frontend, checkout [this commit](https://github.com/dapnet-core/core/commit/af04eaedaf9bcd6439e8d05a289ffe30ea89f84c)
+This version is currently in development, especially the new [frontend](https://github.com/dapnet-core/frontend) is not fully functional right now.
+
+To run the "old" setup using [web](https://github.com/dapnet-core/web/tree/vuetify) as frontend, checkout [this commit](https://github.com/dapnet-core/core/tree/af04eaedaf9bcd6439e8d05a289ffe30ea89f84c)
 ## Requirements
 
 - Docker

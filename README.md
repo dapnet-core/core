@@ -18,7 +18,7 @@ To run the "old" setup using [web](https://github.com/dapnet-core/web/tree/vueti
 docker-compose up
 ```
 
-4. If all 5 services started, rabbitmq will repeatedly emit errors. To fix them, add your node to [CouchDB](http://localhost:5984/_utils/#database/nodes/_new). Login credentials are set in the `config.env` file from step one. Replace the values in the following template, then paste it into the 'New document' form:
+4. If all 5 services started, rabbitmq will repeatedly emit errors. To fix them, add your node to [CouchDB](http://localhost:5984/_utils). Login credentials are set in the `config.env` file from step two. Navigate to [this page](http://localhost:5984/_utils/#database/nodes/_new) and replace the values in the following template, then paste it into the 'New document' form:
 
 ```JSON
 {
